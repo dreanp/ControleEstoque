@@ -13,7 +13,7 @@ namespace ControleEstoque.WEB.Models
             var ret = false;
             using (var conexao = new SqlConnection())
             {
-                conexao.ConnectionString = @"Data Source=DESKTOP-39STBR1;Initial Catalog=ControleEstoqueWEB;User Id=admin;Password=123";
+                conexao.ConnectionString = @"Data Source=DESKTOP-CSEVD00\SQLEXPRESS;Initial Catalog=ControleEstoqueWEB;User Id=admin;Password=123";
                 conexao.Open();
                 using (var comando = new SqlCommand())
                 {
