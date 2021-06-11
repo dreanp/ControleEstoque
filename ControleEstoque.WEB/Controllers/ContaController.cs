@@ -37,7 +37,7 @@ namespace ControleEstoque.WEB.Controllers
                 }
                 else
                 {
-                    RedirectToAction("Index", "Home");
+                   return RedirectToAction("Index", "Home");
                 }
             }
             else
