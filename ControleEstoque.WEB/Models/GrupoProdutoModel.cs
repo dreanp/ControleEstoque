@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ControleEstoque.WEB.Models
 {
@@ -14,6 +15,7 @@ namespace ControleEstoque.WEB.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O campo nome é obrigatório.")]
+        //[AllowHtml] Permite a inclusão de registros de código. HTML por exemplo, sem que o mesmo seja executado
         public String Nome { get; set; }
         public bool Ativo { get; set; }
 
@@ -113,9 +115,11 @@ namespace ControleEstoque.WEB.Models
                     comando.Connection = conexao;
                     if (model == null)
                     {
-                        comando.CommandText = "INSERT INTO grupo_produto (nome, ativo) VALUES ('@nome', @ativo); SELECT CONVERT (INT, SCOPE_IDENTITY())";
+
                         comando.Parameters.Add("@nome", SqlDbType.VarChar).Value = this.Nome;
                         comando.Parameters.Add("@ativo", SqlDbType.Bit).Value = (this.Ativo ? 1 : 0);
+                        comando.CommandText = "INSERT INTO grupo_produto (nome, ativo) VALUES (@nome, @ativo); SELECT CONVERT (INT, SCOPE_IDENTITY())";
+                        
 
 
                         ret = (int)comando.ExecuteScalar();

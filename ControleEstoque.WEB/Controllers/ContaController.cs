@@ -26,11 +26,11 @@ namespace ControleEstoque.WEB.Controllers
                 return View(login);
             }
 
-            var admin = UsuarioModel.ValidarUsuario(login.Usuario, login.Senha);
+            var usuario = UsuarioModel.ValidarUsuario(login.Usuario, login.Senha);
 
-            if (admin)
+            if (usuario != null)
             {
-                FormsAuthentication.SetAuthCookie(login.Usuario, login.LembrarMe);
+                FormsAuthentication.SetAuthCookie(usuario.Nome, login.LembrarMe);
                 if (Url.IsLocalUrl(returnUrl))
                 {
                     return Redirect(returnUrl);
