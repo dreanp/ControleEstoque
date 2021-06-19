@@ -9,6 +9,7 @@ namespace ControleEstoque.WEB.Controllers
 {
     public class CadastroController : Controller
     {
+        private const int _quantidadeMaxLinhasPorPagina = 5;
 
         private const string _senhaPadrao = "{$127;$188}";
 
@@ -90,12 +91,36 @@ namespace ControleEstoque.WEB.Controllers
         [Authorize]
         public ActionResult GrupoProduto()
         {
-            return View(GrupoProdutoModel.RecuperarLista());
+            ViewBag.QuantidadeMaxLinhasPorPagina = _quantidadeMaxLinhasPorPagina;
+            ViewBag.PaginaAtual = 1;
+
+            var lista = GrupoProdutoModel.RecuperarLista(ViewBag.PaginaAtual, _quantidadeMaxLinhasPorPagina);
+            var quantidade = GrupoProdutoModel.RecuperarQuantidade();
+
+
+
+            var difQuantidadePaginas = (quantidade % ViewBag.QuantidadeMaxLinhasPorPagina) > 0 ? 1 : 0;
+            ViewBag.QuantidadePaginas = (quantidade / ViewBag.QuantidadeMaxLinhasPorPagina) + difQuantidadePaginas;
+
+
+            return View(lista);
         }
+
+        [Authorize]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public JsonResult GrupoProdutoPagina(int pagina)
+        {
+            var lista = GrupoProdutoModel.RecuperarLista(pagina, _quantidadeMaxLinhasPorPagina);
+           
+
+            return Json(lista);
+        }
+
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult RecuperarGrupoProduto(int id)
+        public JsonResult RecuperarGrupoProduto(int id)
         {
             return Json(GrupoProdutoModel.RecuperarPeloId(id));
         }
@@ -103,7 +128,7 @@ namespace ControleEstoque.WEB.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult ExcluirGrupoProduto(int id)
+        public JsonResult ExcluirGrupoProduto(int id)
         {           
             return Json(GrupoProdutoModel.ExcluirPeloId(id));
         }
@@ -111,7 +136,7 @@ namespace ControleEstoque.WEB.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult SalvarGrupoProduto(GrupoProdutoModel model)
+        public JsonResult SalvarGrupoProduto(GrupoProdutoModel model)
         {
             var resultado = "Ok";
             var mensagens = new List<String>();
