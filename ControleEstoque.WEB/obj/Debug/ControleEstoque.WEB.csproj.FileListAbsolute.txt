@@ -250,3 +250,4 @@ C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\Co
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.csproj.CopyComplete
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.dll
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.pdb
+C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\Rotativa.dll

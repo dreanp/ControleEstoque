@@ -72,7 +72,7 @@ namespace ControleEstoque.WEB.Controllers
                     }
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     resultado = "Erro";
                 }
@@ -163,7 +163,7 @@ namespace ControleEstoque.WEB.Controllers
                     }
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     resultado = "Erro";
                 }
@@ -171,6 +171,19 @@ namespace ControleEstoque.WEB.Controllers
                 
             }
             return Json(new { Resultado = resultado, Mensagens = mensagens, IdSalvo = idSalvo });
+        }
+
+        [Authorize]
+        public ActionResult GetSamples()
+        {
+            List<GrupoProdutoModel> samples = GrupoProdutoModel.RecuperarLista(1, 1);
+            return View(samples);
+        }
+
+        [Authorize]
+        public ActionResult GeneratePDF()
+        {
+            return new Rotativa.ActionAsPdf("GetSamples");
         }
 
         #endregion
