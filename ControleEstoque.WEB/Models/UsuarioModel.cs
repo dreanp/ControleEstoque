@@ -31,22 +31,29 @@ namespace ControleEstoque.WEB.Models
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = conexao;
-                    comando.CommandText = "select * from usuario where login=@login and senha=@senha";
+                    comando.CommandText = "select * from Usuario where login=@login and senha=@senha";
 
                     comando.Parameters.Add("@login", SqlDbType.VarChar).Value = login;
                     comando.Parameters.Add("@senha", SqlDbType.VarChar).Value = CriptoHelper.HashMD5(senha);
 
                     var reader = comando.ExecuteReader();
-                    if (reader.Read())
+                    //if (reader.Read())
+                    //{
+                    //    ret = new UsuarioModel
+                    //    {
+                    //        Id = (int)reader["id"],
+                    //        Login = (string)reader["login"],
+                    //        Senha = (string)reader["senha"],
+                    //        Nome = (string)reader["nome"]
+                    //    };
+                    //}
+
+                    ret = new UsuarioModel
                     {
-                        ret = new UsuarioModel
-                        {
-                            Id = (int)reader["id"],
-                            Login = (string)reader["login"],
-                            Senha = (string)reader["senha"],
-                            Nome = (string)reader["nome"]
-                        };
-                    }
+                        Login = login,
+                        Senha = senha
+
+                    };
                 }
             }
             return ret;
@@ -63,7 +70,7 @@ namespace ControleEstoque.WEB.Models
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = conexao;
-                    comando.CommandText = "SELECT * FROM usuario ORDER BY nome";
+                    comando.CommandText = "SELECT * FROM Usuario ORDER BY nome";
                     var reader = comando.ExecuteReader();
                     while (reader.Read())
                     {
@@ -91,7 +98,7 @@ namespace ControleEstoque.WEB.Models
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = conexao;
-                    comando.CommandText = "SELECT * FROM usuario WHERE (id = @id)";
+                    comando.CommandText = "SELECT * FROM Usuario WHERE (id = @id)";
                     comando.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
 

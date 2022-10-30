@@ -245,9 +245,9 @@ C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\pt-br\Sy
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.csprojAssemblyReference.cache
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.csproj.CoreCompileInputs.cache
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.csproj.CopyComplete
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.dll
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.pdb
 C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\bin\Rotativa.dll
+C:\Users\picol\Documents\GitHub\ControleEstoque\ControleEstoque.WEB\obj\Debug\ControleEstoque.WEB.csproj.AssemblyReference.cache
